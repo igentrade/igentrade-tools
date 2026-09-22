@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>無料ツール一覧 | 合同会社威源国際貿易（iGenTrade）</title>
+  <meta name="description" content="合同会社威源国際貿易（iGenTrade）が公開している、中小企業向けの無料ブラウザツール一覧。見積書・請求書、納品書・領収書、消費税、為替、営業日。" />
+  <meta name="keywords" content="合同会社威源国際貿易,威源国際貿易,iGenTrade,無料ツール,見積書,請求書,納品書,領収書,消費税,為替,営業日" />
+  <style>
+    :root {
+      --ink: #1a1f2e;
+      --muted: #5b6475;
+      --line: #d9dee7;
+      --bg: #f3f5f9;
+      --card: #fff;
+      --accent: #0b6e4f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    header {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.5rem 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+    h1 { margin: 0 0 .35rem; font-size: 1.35rem; }
+    .legal { color: var(--accent); font-weight: 700; }
+    .sub { margin: 0; color: var(--muted); font-size: .95rem; }
+    .note {
+      margin-top: 1rem;
+      padding: .85rem 1rem;
+      background: #e6f4ef;
+      border: 1px solid #b7dfd0;
+      border-radius: 8px;
+      font-size: .9rem;
+      color: #245c48;
+    }
+    .grid { display: grid; gap: .85rem; }
+    a.card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem 1.15rem;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    a.card:hover {
+      border-color: #9ecfbe;
+      box-shadow: 0 6px 18px rgba(26,31,46,.06);
+    }
+    a.card h2 { margin: 0 0 .25rem; font-size: 1.05rem; color: var(--accent); }
+    a.card p { margin: 0; color: var(--muted); font-size: .92rem; }
+    footer {
+      margin-top: 1.75rem;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    footer a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="legal">合同会社威源国際貿易（iGenTrade）</p>
+      <h1>無料で使える小さな業務ツール</h1>
+      <p class="sub">貿易の会社ですが、中小企業の日常向けに、ブラウザだけで動く無料ツールも少し公開しています。登録不要です。</p>
+      <p class="note">印刷した帳票には、通常こちらの社名やリンクは出ません。必要なときだけ各ツール内で表示できます。</p>
+    </header>
+
+    <div class="grid">
+      <a class="card" href="https://igentrade.github.io/igentrade-seikyu/">
+        <h2>見積書・請求書メーカー</h2>
+        <p>見積書と請求書を作成し、印刷または PDF 保存できます。</p>
+      </a>
+      <a class="card" href="https://igentrade.github.io/igentrade-nohin-ryoshu/">
+        <h2>納品書・領収書メーカー</h2>
+        <p>納品書と領収書を作成できます。但し書きや支払方法にも対応。</p>
+      </a>
+      <a class="card" href="https://igentrade.github.io/igentrade-shohizei/">
+        <h2>消費税計算機</h2>
+        <p>税込と税抜の相互計算。10% / 軽減 8% / 0%。</p>
+      </a>
+      <a class="card" href="https://igentrade.github.io/igentrade-kawase/">
+        <h2>為替換算・概算コスト</h2>
+        <p>JPY / CNY / USD / EUR の換算と、送料・手数料などの概算。</p>
+      </a>
+      <a class="card" href="https://igentrade.github.io/igentrade-eigyobi/">
+        <h2>営業日計算機</h2>
+        <p>営業日の加算や、期間内の営業日数をざっくり確認できます。</p>
+      </a>
+    </div>
+
+    <footer>
+      <p>提供: 合同会社威源国際貿易（iGenTrade）</p>
+      <p>公式サイト（貿易事業）: <a href="https://www.igentrade.com/">https://www.igentrade.com/</a></p>
+      <p>GitHub: <a href="https://github.com/igentrade">https://github.com/igentrade</a></p>
+    </footer>
+  </div>
+</body>
+</html>
