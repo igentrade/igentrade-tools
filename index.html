@@ -66,6 +66,40 @@
       font-size: .85rem;
     }
     footer a { color: var(--accent); }
+
+    .usage-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0 auto 0.75rem;
+      flex-wrap: wrap;
+    }
+    .usage-stat {
+      min-width: 7rem;
+      padding: 0.65rem 1.1rem;
+      border: 1px solid var(--border, #d8e0e8);
+      border-radius: 10px;
+      background: #fff;
+    }
+    .usage-num {
+      display: block;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent, #0d7377);
+      line-height: 1.2;
+      font-variant-numeric: tabular-nums;
+    }
+    .usage-label {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.78rem;
+      color: var(--muted, #667);
+    }
+    .usage-note {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      margin: 0 0 1rem;
+    }
   </style>
 </head>
 <body>
@@ -104,11 +138,38 @@
       </a>
     </div>
 
-    <footer>
+    <footer class="site-foot">
+    <div class="usage-stats" id="usageStats" aria-label="利用統計"
+      data-stat-ns="igentrade"
+      data-stat-views="tools-views"
+      data-stat-tries="tools-tries">
+      <div class="usage-stat">
+        <span class="usage-num" id="statViews">—</span>
+        <span class="usage-label">閲覧人数</span>
+      </div>
+      <div class="usage-stat">
+        <span class="usage-num" id="statTries">—</span>
+        <span class="usage-label">試用人数</span>
+      </div>
+    </div>
+    <p class="usage-note">匿名の概算カウントです（個人情報は保存しません）。入力データはブラウザ内のみで処理されます。</p>
       <p>提供: 合同会社威源国際貿易（iGenTrade）</p>
       <p>公式サイト（貿易事業）: <a href="https://www.igentrade.com/">https://www.igentrade.com/</a></p>
       <p>GitHub: <a href="https://github.com/igentrade">https://github.com/igentrade</a></p>
     </footer>
   </div>
+
+  <script src="stats.js"></script>
+  <script>
+    (function () {
+      document.querySelectorAll("a.card").forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (typeof window.iGenTradeRecordTry === "function") {
+            window.iGenTradeRecordTry();
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
