@@ -7,3 +7,5 @@
 公式の貿易サイト本体とは別に、こちらは GitHub 上の小さな公開ツール置き場です。
 
 検索用: 合同会社威源国際貿易 / 威源国際貿易 / iGenTrade / 無料ツール
+
+- [簡易出納帳](https://github.com/igentrade/igentrade-suitoubo) — https://igentrade.github.io/igentrade-suitoubo/
