@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>発注書メーカー | iGenTrade（合同会社威源国際貿易）</title>
+  <meta name="description" content="合同会社威源国際貿易（iGenTrade）が無料提供。日本の中小企業向け発注書メーカー。ブラウザで作成し印刷・PDF保存。" />
+  <meta name="keywords" content="合同会社威源国際貿易,威源国際貿易,iGenTrade,発注書,注文書,中小企業,無料ツール" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar no-print">
+    <div class="brand">
+      <strong>iGenTrade</strong>
+      <span>発注書メーカー</span>
+    </div>
+    <p class="tagline">合同会社威源国際貿易 提供｜日本の中小企業向け・無料ツール</p>
+  </header>
+
+  <main class="layout">
+    <aside class="panel no-print">
+      <h2>設定</h2>
+      <label>発行日
+        <input type="date" id="issueDate" />
+      </label>
+      <label>納品希望日
+        <input type="date" id="dueDate" />
+      </label>
+      <label>書類番号
+        <input type="text" id="docNumber" placeholder="例: PO-2026-001" />
+      </label>
+
+      <h3>自社情報</h3>
+      <label>会社名
+        <input type="text" id="sellerName" placeholder="株式会社サンプル" />
+      </label>
+      <label>住所
+        <textarea id="sellerAddress" rows="2" placeholder="〒100-0001 東京都千代田区..."></textarea>
+      </label>
+      <label>電話 / メール
+        <input type="text" id="sellerContact" placeholder="03-0000-0000 / info@example.com" />
+      </label>
+      <label>発注担当者
+        <input type="text" id="contactPerson" placeholder="例: 営業部 山田" />
+      </label>
+      <label>支払条件
+        <textarea id="paymentTerms" rows="2" placeholder="例: 月末締め・翌月末払い"></textarea>
+      </label>
+
+      <h3>発注先（仕入先）</h3>
+      <label>宛名
+        <input type="text" id="buyerName" placeholder="株式会社仕入先" />
+      </label>
+      <label>住所
+        <textarea id="buyerAddress" rows="2"></textarea>
+      </label>
+
+      <label>納品先・住所<textarea id="deliveryAddress" rows="3" placeholder="納品先の名称・住所・連絡先"></textarea></label>
+      <h3>明細</h3>
+      <div id="items"></div>
+      <button type="button" id="addItem" class="btn secondary">行を追加</button>
+
+      <h3>税率・備考</h3>
+      <label>標準税率
+        <select id="taxRate">
+          <option value="0.10" selected>10%</option>
+          <option value="0.08">8%（軽減）</option>
+          <option value="0">非課税 / 0%</option>
+        </select>
+      </label>
+      <label>備考
+        <textarea id="notes" rows="3" placeholder="例: 納品前に担当者へご連絡ください。"></textarea>
+      </label>
+
+            <label class="toggle-brand">
+        <input type="checkbox" id="showBrand" />
+        書類フッターに提供元を表示（通常はオフ推奨）
+      </label>
+
+      <div class="actions">
+        <button type="button" id="saveLocal" class="btn secondary">下書き保存</button>
+        <button type="button" id="loadLocal" class="btn secondary">下書き読込</button>
+        <button type="button" id="printBtn" class="btn primary">印刷 / PDF</button>
+      </div>
+      <div class="actions"><button type="button" id="exportDraft" class="btn secondary">バックアップ保存</button><button type="button" id="importDraft" class="btn secondary">バックアップ読込</button><input type="file" id="draftFile" accept=".json,application/json" hidden></div><p id="status" role="status" aria-live="polite" class="hint"></p>
+      <p class="hint">金額は日本円・税抜単価です。明細金額は円単位で四捨五入、消費税は合計額から切り捨てで計算します。</p>
+      <p class="hint">印刷ダイアログで「PDFに保存」を選ぶとPDF化できます。入力内容はブラウザ内のみで処理され、外部送信しません。</p>
+      <p class="hint"><a href="https://igentrade.github.io/igentrade-tools/">← 無料ツール一覧</a> · <a href="https://igentrade.github.io/igentrade-tools/hanko/" target="_blank" rel="noopener">印鑑・角印メーカー</a></p>
+      <p class="hint">関連ツール: <a href="https://igentrade.github.io/igentrade-nohin-ryoshu/" target="_blank" rel="noopener">納品書・領収書メーカー</a></p>
+    </aside>
+
+    <section class="preview-wrap">
+      <article class="sheet" id="sheet">
+        <div class="sheet-head">
+          <div>
+            <p class="doc-label" id="docLabel">発注書</p>
+            <p class="doc-sub">Purchase Order</p>
+          </div>
+          <div class="meta">
+            <p><span>番号</span> <strong id="pDocNumber">—</strong></p>
+            <p><span>発行日</span> <strong id="pIssueDate">—</strong></p>
+            <p><span id="dueLabel">納品希望日</span> <strong id="pDueDate">—</strong></p>
+          </div>
+        </div>
+
+        <div class="parties">
+          <div class="buyer">
+            <p class="name" id="pBuyerName">（宛名）</p>
+            <p class="addr" id="pBuyerAddress"></p>
+            <p class="honor">下記の通り発注いたします。</p>
+          </div>
+          <div class="seller">
+            <p class="name" id="pSellerName">（自社名）</p>
+            <p class="addr" id="pSellerAddress"></p>
+            <p class="addr" id="pSellerContact"></p>
+            <p class="reg" id="pContactPerson"></p>
+          </div>
+        </div>
+
+        <div class="total-banner">
+          <span>発注金額（税込）</span>
+          <strong id="pGrandTotal">¥0</strong>
+        </div>
+
+        <table class="items-table">
+          <thead>
+            <tr>
+              <th>品目・内容</th>
+              <th>数量</th>
+              <th>単位</th>
+              <th>単価</th>
+              <th>金額</th>
+            </tr>
+          </thead>
+          <tbody id="pItems"></tbody>
+        </table>
+
+        <div class="totals">
+          <div class="bank" id="pBankBlock">
+            <h4>支払条件</h4>
+            <p id="pPaymentTerms"></p>
+          </div>
+          <dl>
+            <div><dt>小計（税抜）</dt><dd id="pSubtotal">¥0</dd></div>
+            <div><dt id="pTaxLabel">消費税（10%）</dt><dd id="pTax">¥0</dd></div>
+            <div class="grand"><dt>合計（税込）</dt><dd id="pTotal">¥0</dd></div>
+          </dl>
+        </div>
+
+        <div class="notes-block"><h4>納品先</h4><p id="pDeliveryAddress">—</p></div>
+        <div class="notes-block">
+          <h4>備考</h4>
+          <p id="pNotes"></p>
+        </div>
+
+        <footer class="sheet-foot brand-foot is-hidden" id="brandFoot">
+          <p>本ツールは <strong>合同会社威源国際貿易（iGenTrade）</strong> が中小企業向けに無料提供しています。</p>
+          <p class="url">公式サイト: https://www.igentrade.com/</p>
+          <p class="url">https://github.com/igentrade/igentrade-tools/tree/main/hatchu</p>
+        </footer>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-foot no-print">
+
+<p>© 合同会社威源国際貿易（iGenTrade）— 日本の中小企業向け無料ツール。商用利用可・改変可（MIT）。</p>
+    <p><a href="https://www.igentrade.com/" target="_blank" rel="noopener">公式サイト: https://www.igentrade.com/</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
