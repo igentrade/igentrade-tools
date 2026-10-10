@@ -1,7 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id), canvas=$('canvas'),ctx=canvas.getContext('2d');
 let style='square';
-const defaults={name:'株式会社伊源貿易',subtitle:'代表者印',font:'serif',size:'1200',color:'#b83227',border:'8',texture:'12',double:true};
+const defaults={name:'合同会社威源国際貿易',subtitle:'代表者印',font:'serif',size:'1200',color:'#b83227',border:'8',texture:'12',double:true};
 const fonts={serif:'"Yu Mincho","Hiragino Mincho ProN","Noto Serif CJK JP","SimSun",serif',sans:'"Yu Gothic","Microsoft YaHei",sans-serif',brush:'"KaiTi","DFKai-SB","Yu Mincho",serif'};
 function chars(value){return Array.from(value.replace(/\s/g,''));}
 function textAt(char,x,y,w,h){ctx.save();ctx.font=`700 100px ${fonts[$('font').value]}`;ctx.textAlign='center';ctx.textBaseline='alphabetic';const m=ctx.measureText(char),actualH=(m.actualBoundingBoxAscent||80)+(m.actualBoundingBoxDescent||10);ctx.translate(x,y);ctx.scale(w/Math.max(m.width,1),h/actualH);ctx.fillText(char,0,((m.actualBoundingBoxAscent||80)-(m.actualBoundingBoxDescent||10))/2);ctx.restore();}
