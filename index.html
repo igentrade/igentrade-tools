@@ -100,7 +100,7 @@
       opacity: 0.9;
       margin: 0 0 1rem;
     }
-  </style>
+  .wrap{max-width:1180px}.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}a.card{display:flex;flex-direction:column;min-height:225px;padding:20px}a.card h3{font-size:15px;color:var(--accent);line-height:1.5;margin:12px 0 8px}a.card p{font-size:12px;line-height:1.7}.tool-icon{display:grid;place-items:center;background:#e6f4ef;color:var(--accent);width:42px;height:42px;border-radius:9px;font-size:23px}.open-label{font-size:11px;color:var(--accent);margin-top:auto;padding-top:15px}.group-title{font-size:17px;margin:26px 0 14px}.directory-filter{display:flex;align-items:center;gap:15px;margin:22px 0}.directory-filter input{flex:1;max-width:450px;border:1px solid var(--line);padding:12px;border-radius:8px;font:inherit}.directory-filter label,.directory-filter span{font-size:12px;color:var(--muted)}[hidden]{display:none!important}a.card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}@media(max-width:1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:20px 14px}a.card{padding:15px;min-height:215px}.directory-filter label{display:none}}@media(max-width:360px){.grid{grid-template-columns:1fr}} </style>
 </head>
 <body>
   <div class="wrap">
@@ -111,41 +111,22 @@
       <p class="note">印刷した帳票には、通常こちらの社名やリンクは出ません。必要なときだけ各ツール内で表示できます。</p>
     </header>
 
-    <div class="grid">
-      <a class="card" href="https://igentrade.github.io/igentrade-tools/hatchu/">
-        <h2>発注書メーカー</h2>
-        <p>仕入先への発注書を作成。納品希望日・納品先・支払条件に対応し、金額を自動計算。下書き保存・バックアップ・印刷・PDF保存ができます。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-seikyu/">
-        <h2>見積書・請求書メーカー</h2>
-        <p>見積書と請求書を作成し、印刷または PDF 保存できます。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-nohin-ryoshu/">
-        <h2>納品書・領収書メーカー</h2>
-        <p>納品書と領収書を作成できます。但し書きや支払方法にも対応。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-shohizei/">
-        <h2>消費税計算機</h2>
-        <p>税込と税抜の相互計算。10% / 軽減 8% / 0%。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-kawase/">
-        <h2>為替換算・概算コスト</h2>
-        <p>JPY / CNY / USD / EUR の換算と、送料・手数料などの概算。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-eigyobi/">
-        <h2>営業日計算機</h2>
-        <p>営業日の加算や、期間内の営業日数をざっくり確認できます。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-suitoubo/">
-        <h2>金銭出納帳（エクセル無料・ブラウザ版）</h2>
-        <p>金銭出納帳をエクセルなし・無料で。収支・消費税・月次集計・CSV（Excel向け）対応の簡易出納帳。</p>
-      </a>
-      <a class="card" href="https://igentrade.github.io/igentrade-tools/hanko/">
-        <h2>印鑑・角印メーカー</h2>
-        <p>会社名から角印・丸印・楕円印を作成。書体・色・枠線・印影の質感を調整し、背景透過 PNG で保存できます。</p>
-      </a>
-    </div>
-
+    <section class="directory-filter"><label for="toolSearch">ツールを検索</label><input id="toolSearch" type="search" placeholder="例: PDF、印鑑、容積"><span id="toolCount">15 ツール</span></section><p id="noTools" hidden>該当するツールがありません。</p>
+<section class="tool-group"><h2 class="group-title">帳票・書類</h2><div class="grid"><a class="card" href="https://igentrade.github.io/igentrade-tools/hatchu/" data-category="帳票・書類"><span class="tool-icon" aria-hidden="true">▤</span><h3>発注書メーカー</h3><p>仕入先への発注書を作成。納品希望日・納品先・支払条件に対応し、金額を自動計算。下書き保存・バックアップ・印刷・PDF保存ができます。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-seikyu/" data-category="帳票・書類"><span class="tool-icon" aria-hidden="true">▤</span><h3>見積書・請求書メーカー</h3><p>見積書と請求書を作成し、印刷または PDF 保存できます。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-nohin-ryoshu/" data-category="帳票・書類"><span class="tool-icon" aria-hidden="true">▤</span><h3>納品書・領収書メーカー</h3><p>納品書と領収書を作成できます。但し書きや支払方法にも対応。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/hanko/" data-category="帳票・書類"><span class="tool-icon" aria-hidden="true">印</span><h3>印鑑・角印メーカー</h3><p>会社名から角印・丸印・楕円印を作成。書体・色・枠線・印影の質感を調整し、背景透過 PNG で保存できます。</p><span class="open-label">ツールを開く ↗</span></a></div></section>
+<section class="tool-group"><h2 class="group-title">貿易・物流</h2><div class="grid"><a class="card" href="https://igentrade.github.io/igentrade-tools/trade/" data-category="貿易・物流"><span class="tool-icon" aria-hidden="true">📄</span><h3>インボイス・パッキングリストメーカー</h3><p>共通の品目データから英文 Commercial Invoice と Packing List を作成。印刷・PDF 保存に対応。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/volume/" data-category="貿易・物流"><span class="tool-icon" aria-hidden="true">📦</span><h3>容積・重量計算機</h3><p>箱数・サイズ・重量から CBM と容積重量をまとめて計算。複数の箱型と単位換算に対応。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/labels/" data-category="貿易・物流"><span class="tool-icon" aria-hidden="true">🏷</span><h3>宛名・荷札メーカー</h3><p>宛名、荷札、Shipping Mark をまとめて作成。A4 用紙に並べて印刷できます。</p><span class="open-label">ツールを開く ↗</span></a></div></section>
+<section class="tool-group"><h2 class="group-title">お金・計算</h2><div class="grid"><a class="card" href="https://igentrade.github.io/igentrade-shohizei/" data-category="お金・計算"><span class="tool-icon" aria-hidden="true">%</span><h3>消費税計算機</h3><p>税込と税抜の相互計算。10% / 軽減 8% / 0%。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-kawase/" data-category="お金・計算"><span class="tool-icon" aria-hidden="true">↔</span><h3>為替換算・概算コスト</h3><p>JPY / CNY / USD / EUR の換算と、送料・手数料などの概算。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-suitoubo/" data-category="お金・計算"><span class="tool-icon" aria-hidden="true">¥</span><h3>金銭出納帳（エクセル無料・ブラウザ版）</h3><p>金銭出納帳をエクセルなし・無料で。収支・消費税・月次集計・CSV（Excel向け）対応の簡易出納帳。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/payments/" data-category="お金・計算"><span class="tool-icon" aria-hidden="true">¥</span><h3>入金・支払予定表</h3><p>入金・支払の期日と処理状況を管理。期限超過の表示、CSV 保存、バックアップに対応。</p><span class="open-label">ツールを開く ↗</span></a></div></section>
+<section class="tool-group"><h2 class="group-title">事務・便利</h2><div class="grid"><a class="card" href="https://igentrade.github.io/igentrade-eigyobi/" data-category="事務・便利"><span class="tool-icon" aria-hidden="true">▦</span><h3>営業日計算機</h3><p>営業日の加算や、期間内の営業日数をざっくり確認できます。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/pdf/" data-category="事務・便利"><span class="tool-icon" aria-hidden="true">▤</span><h3>PDF ページ整理</h3><p>PDF を結合・抽出・並べ替え・回転。ファイルはブラウザ内で処理します。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/images/" data-category="事務・便利"><span class="tool-icon" aria-hidden="true">▧</span><h3>画像圧縮・変換</h3><p>画像をまとめて縮小し、PNG・JPEG・WebP に変換。サーバーへのアップロードは不要です。</p><span class="open-label">ツールを開く ↗</span></a>
+<a class="card" href="https://igentrade.github.io/igentrade-tools/qr/" data-category="事務・便利"><span class="tool-icon" aria-hidden="true">▦</span><h3>QR コードメーカー</h3><p>URL・テキスト・連絡先から QR コードを作成。PNG と SVG で保存できます。</p><span class="open-label">ツールを開く ↗</span></a></div></section>
     <footer class="site-foot">
     <div class="usage-stats" id="usageStats" aria-label="利用統計"
       data-stat-ns="igentrade"
@@ -177,7 +158,9 @@
           }
         });
       });
+      const search=document.getElementById("toolSearch");search.addEventListener("input",function(){const q=search.value.toLowerCase().trim();let n=0;document.querySelectorAll("a.card").forEach(function(card){card.hidden=!card.textContent.toLowerCase().includes(q);if(!card.hidden)n++;});document.querySelectorAll(".tool-group").forEach(function(group){group.hidden=![...group.querySelectorAll("a.card")].some(function(c){return !c.hidden;});});document.getElementById("toolCount").textContent=n+" ツール";document.getElementById("noTools").hidden=n!==0;});
     })();
   </script>
 </body>
 </html>
+
