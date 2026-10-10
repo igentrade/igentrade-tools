@@ -2,3 +2,5 @@
 
 /* Shared iGenTrade identity */
 .brand{font-family:Inter,"Yu Gothic","Microsoft YaHei",sans-serif;font-size:23px;letter-spacing:.3px}.brand small{font-size:9px;letter-spacing:1px}.header-note{max-width:380px;text-align:right;line-height:1.8;color:#5b6475}.tool-nav{margin-bottom:24px;font-size:11px}.tool-nav a,.site-foot a{color:#0b6e4f;text-decoration:none}.tool-nav a:hover,.site-foot a:hover{text-decoration:underline}.site-foot{display:block;line-height:1.8;letter-spacing:0;font-size:11px;color:#5b6475;padding:4px 0 16px}.site-foot p{margin:8px 0}@media(max-width:850px){.header-note{max-width:230px;font-size:10px}}@media(max-width:640px){header{height:auto;min-height:105px;align-items:flex-start;flex-direction:column;justify-content:center;gap:12px;padding:17px 24px}.header-note{display:block;max-width:none;text-align:left;font-size:9px}.brand{font-size:21px}.brand small{font-size:8px}.tool-nav{margin-bottom:20px}.site-foot{font-size:10px}}
+
+.font-help{font-size:10px;color:#7e8578;line-height:1.7;margin:12px 0}.font-credit{font-size:10px}.font-help[hidden]{display:none}
